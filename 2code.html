@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistance System - V2.0</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px #cccccc;
+        }
+
+        h1 {
+            color: #174ea6;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #174ea6;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d3475;
+        }
+
+        #response {
+            margin-top: 20px;
+            color: #222;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Assistance System</h1>
+        <p>Your simple digital assistant</p>
+
+        <h3>Ask Your Question</h3>
+
+        <input type="text" id="question"
+               placeholder="Enter your question">
+
+        <br>
+
+        <button onclick="getAnswer()">Get Answer</button>
+
+        <p id="response"></p>
+    </div>
+
+    <script>
+        function getAnswer() {
+            let question = document.getElementById("question")
+                .value.toLowerCase().trim();
+
+            let answer = "";
+
+            if (question.includes("hello") ||
+                question.includes("hi")) {
+                answer = "Hello! How can I assist you today?";
+            } else if (question.includes("time")) {
+                answer = "You can check the current time on your device.";
+            } else if (question.includes("study")) {
+                answer = "Make a study plan, set goals, and take regular breaks.";
+            } else if (question.includes("ai")) {
+                answer = "AI helps computers perform tasks that usually require human intelligence.";
+            } else if (question.includes("help")) {
+                answer = "I am here to help. Please enter a topic such as AI or study.";
+            } else if (question === "") {
+                answer = "Please enter a question first.";
+            } else {
+                answer = "Sorry, I do not have an answer for that question yet.";
+            }
+
+            document.getElementById("response").textContent = answer;
+        }
+    </script>
+</body>
+</html>
